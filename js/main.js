@@ -2,17 +2,42 @@
 // (Initial theme is set inline in <head> to avoid flash of wrong theme.)
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('themeToggle');
-  if (!toggle) return;
-  toggle.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('apml-theme', 'dark');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('apml-theme', 'light');
-    }
-  });
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('apml-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('apml-theme', 'light');
+      }
+    });
+  }
+
+  // === MOBILE NAV BURGER ===
+  const burger = document.getElementById('navBurger');
+  const navLinks = document.getElementById('navLinks');
+  if (burger && navLinks) {
+    const closeMenu = () => {
+      burger.classList.remove('active');
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+    burger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      burger.classList.toggle('active', isOpen);
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    // close on link click
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
+    // close when resizing back to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 880) closeMenu();
+    });
+  }
 });
 
 const members = [
