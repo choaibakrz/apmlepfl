@@ -244,6 +244,48 @@ section { padding:90px 5%; }
 .sponsor-card { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:32px 24px; }
 .sponsor-desc { color:var(--text-faint); font-size:.88rem; line-height:1.7; }
 
+/* Partenaires actuels (logos showcase) */
+.partners-block { margin-bottom:72px; }
+.partners-title {
+  text-align:center; font-size:.78rem; font-weight:700;
+  color:var(--text-faint); text-transform:uppercase; letter-spacing:2px;
+  margin-bottom:32px;
+}
+.partners-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:20px;
+  max-width:900px;
+  margin:0 auto;
+}
+.partner-tile {
+  display:flex; align-items:center; justify-content:center;
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:28px 24px;
+  min-height:120px;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.partner-tile:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-card);
+  border-color:rgba(193,18,31,.3);
+}
+.partner-tile img {
+  max-width:100%;
+  max-height:64px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+[data-theme="light"] .partner-tile {
+  background:#ffffff;
+  border:1px solid var(--border);
+  box-shadow:0 2px 8px rgba(15,23,42,.04);
+}
+
 .tier-section { margin-bottom:72px; }
 .partnership-title { font-size:1.3rem; font-weight:700; margin-bottom:32px; text-align:center; color:var(--text-muted); }
 .tier-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:20px; }
@@ -534,6 +576,9 @@ footer p { color:var(--text-faint); font-size:.82rem; margin-top:8px; }
   .sponsor-grid { gap:14px; }
   .sponsor-card { padding:24px 20px; }
   .cta-contact { padding:36px 22px; }
+  .partners-grid { gap:14px; grid-template-columns:1fr; max-width:300px; }
+  .partner-tile { padding:22px 20px; min-height:100px; }
+  .partner-tile img { max-height:54px; }
 
   /* EVENT */
   .event-section { padding:56px 5%; }
