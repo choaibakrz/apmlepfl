@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APML – Association des Polytechniciens Marocains de Lausanne</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('apml-theme');
+          var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          if (stored === 'light' || (!stored && prefersLight)) {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        } catch(e) {}
+      })();
+    </script>
 </head>
 <body>
 
@@ -21,7 +32,13 @@
     <li><a href="#talenthub">TalentHub</a></li>
     <li><a href="#sponsoring">Sponsoring</a></li>
   </ul>
-  <a href="#talenthub" class="nav-cta">Déposer mon CV →</a>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Changer de thème">
+      <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+    <a href="#talenthub" class="nav-cta">Déposer mon CV →</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -87,7 +104,7 @@
     <div class="event-info">
       <div class="event-badge">🎤 Prochain événement</div>
       <h2>Entre Héritage Historique<br>et <em>Ambition Stratégique</em></h2>
-      <p style="color:rgba(255,255,255,.55); font-size:.9rem; line-height:1.7; margin-bottom:8px;">
+      <p style="color:var(--text-faint); font-size:.9rem; line-height:1.7; margin-bottom:8px;">
         L'APML vous invite à une conférence exceptionnelle sur le développement fulgurant du Maroc, animée par l'un des grands décideurs du Royaume.
       </p>
       <div class="event-speaker">
@@ -248,7 +265,7 @@
   <div class="fade-in cta-contact">
     <div style="font-size:1.5rem; margin-bottom:12px;">📩</div>
     <h3 style="font-size:1.4rem; font-weight:800; margin-bottom:10px;">Intéressé par un partenariat ?</h3>
-    <p style="color:rgba(255,255,255,.5); font-size:.9rem; margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.7;">
+    <p style="color:var(--text-faint); font-size:.9rem; margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.7;">
       Notre pôle sponsoring est à votre disposition pour construire ensemble une collaboration sur mesure adaptée à vos objectifs.
     </p>
     <a href="mailto:epflapml@gmail.com?subject=Partenariat APML" class="btn-primary">Nous contacter →</a>

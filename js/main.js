@@ -1,3 +1,20 @@
+// === THEME TOGGLE ===
+// (Initial theme is set inline in <head> to avoid flash of wrong theme.)
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('apml-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('apml-theme', 'light');
+    }
+  });
+});
+
 const members = [
   { name:"Salma El Yadouni", role:"Présidente", pole:"executif", initials:"SE" },
   { name:"Nafissa Bahbouhi", role:"Vice-Présidente", pole:"executif", initials:"NB" },
