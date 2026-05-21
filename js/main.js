@@ -40,25 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Pour chaque membre : remplis les champs "classe", "email" et "tel".
-// Laisse une chaîne vide "" si l'info n'est pas encore connue (la fiche affichera "—").
+// Données issues de l'annuaire public people.epfl.ch.
+// "classe" = section + semestre. "tel" laissé vide (non public sur l'annuaire) :
+// à compléter manuellement uniquement avec l'accord de la personne.
+// Les 4 membres sans email n'ont pas de fiche publique trouvée — à compléter à la main.
 const members = [
-  { name:"Salma El Yadouni", role:"Présidente", pole:"executif", initials:"SE", classe:"", email:"", tel:"" },
-  { name:"Nafissa Bahbouhi", role:"Vice-Présidente", pole:"executif", initials:"NB", classe:"", email:"", tel:"" },
-  { name:"Rinas Nejjari", role:"Trésorier", pole:"executif", initials:"RN", classe:"", email:"", tel:"" },
-  { name:"Ilias Jari", role:"Secrétaire Général", pole:"executif", initials:"IJ", classe:"", email:"", tel:"" },
+  { name:"Salma El Yadouni", role:"Présidente", pole:"executif", initials:"SE", classe:"Systèmes de communication — Master 1", email:"salma.elyadouni@epfl.ch", tel:"" },
+  { name:"Nafissa Bahbouhi", role:"Vice-Présidente", pole:"executif", initials:"NB", classe:"Physique — Bachelor 3", email:"nafissa.bahbouhi@epfl.ch", tel:"" },
+  { name:"Rinas Nejjari", role:"Trésorier", pole:"executif", initials:"RN", classe:"Mathématiques — Bachelor 4", email:"rinas.nejjari@epfl.ch", tel:"" },
+  { name:"Ilias Jari", role:"Secrétaire Général", pole:"executif", initials:"IJ", classe:"Génie civil — Bachelor 6", email:"mohamed.jari@epfl.ch", tel:"" },
   { name:"Maroua El Azhari", role:"Resp. Communication", pole:"communication", initials:"MA", classe:"", email:"", tel:"" },
-  { name:"Ismail Merroun", role:"Pôle Communication", pole:"communication", initials:"IM", classe:"", email:"", tel:"" },
-  { name:"Ayoub El Yakoubi", role:"Pôle Communication", pole:"communication", initials:"AY", classe:"", email:"", tel:"" },
+  { name:"Ismail Merroun", role:"Pôle Communication", pole:"communication", initials:"IM", classe:"Informatique — Bachelor 1", email:"ismail.merroun@epfl.ch", tel:"" },
+  { name:"Ayoub El Yakoubi", role:"Pôle Communication", pole:"communication", initials:"AY", classe:"Informatique — Bachelor", email:"ayoub.elyakoubi@epfl.ch", tel:"" },
   { name:"Samia Labdidi", role:"Pôle Communication", pole:"communication", initials:"SL", classe:"", email:"", tel:"" },
-  { name:"Zineb Kebdani", role:"Resp. Événementiel", pole:"evenement", initials:"ZK", classe:"", email:"", tel:"" },
-  { name:"Ali Bendaoud", role:"Pôle Événement", pole:"evenement", initials:"AB", classe:"", email:"", tel:"" },
-  { name:"Selma Mkinsi", role:"Pôle Événement", pole:"evenement", initials:"SM", classe:"", email:"", tel:"" },
+  { name:"Zineb Kebdani", role:"Resp. Événementiel", pole:"evenement", initials:"ZK", classe:"Cours de mathématiques spéciales (CMS)", email:"zineb.kebdani@epfl.ch", tel:"" },
+  { name:"Ali Bendaoud", role:"Pôle Événement", pole:"evenement", initials:"AB", classe:"Systèmes de communication — Bachelor 5", email:"ali.bendaoud@epfl.ch", tel:"" },
+  { name:"Selma Mkinsi", role:"Pôle Événement", pole:"evenement", initials:"SM", classe:"Génie civil — Bachelor 5", email:"selma.mkinsi@epfl.ch", tel:"" },
   { name:"Sara Oubarka", role:"Pôle Événement", pole:"evenement", initials:"SO", classe:"", email:"", tel:"" },
   { name:"Adnan Sekkal", role:"Resp. Sponsoring", pole:"sponsoring", initials:"AS", classe:"", email:"", tel:"" },
-  { name:"Ismail Moudden", role:"Pôle Sponsoring", pole:"sponsoring", initials:"IM", classe:"", email:"", tel:"" },
-  { name:"Amine Benbouya", role:"Pôle Sponsoring", pole:"sponsoring", initials:"AB", classe:"", email:"", tel:"" },
-  { name:"Choaib Akile Razzaq", role:"Pôle Sponsoring", pole:"sponsoring", initials:"CR", classe:"", email:"", tel:"" },
+  { name:"Ismail Moudden", role:"Pôle Sponsoring", pole:"sponsoring", initials:"IM", classe:"Systèmes de communication — Bachelor 6", email:"ismail.moudden@epfl.ch", tel:"" },
+  { name:"Amine Benbouya", role:"Pôle Sponsoring", pole:"sponsoring", initials:"AB", classe:"", email:"mohammed.benbouya@epfl.ch", tel:"" },
+  { name:"Choaib Akile Razzaq", role:"Pôle Sponsoring", pole:"sponsoring", initials:"CR", classe:"Informatique — Bachelor 3", email:"choaib.akilerazzaq@epfl.ch", tel:"" },
 ];
 
 const poleLabels = { executif:"Exécutif", communication:"Communication", evenement:"Événement", sponsoring:"Sponsoring" };
